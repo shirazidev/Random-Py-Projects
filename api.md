@@ -262,7 +262,7 @@ def get_news(query):
 query = input("موضوع جستجوی اخبار: ")
 get_news(query)
 ```
-1.  دستیار یادآور
+10.  دستیار یادآور
 
 هدف: ارسال یادآوری به تلگرام.
 ```
@@ -285,4 +285,17 @@ chat_id = "YOUR_CHAT_ID"
 message = input("پیام یادآور: ")
 delay = int(input("مدت زمان تأخیر (ثانیه): "))
 send_reminder(bot_token, chat_id, message, delay)
+```
+
+11. دریافت نرخ تتر از نوبیتکس
+```
+import requests
+
+data = requests.get("https://api.nobitex.ir/market/stats?srcCurrency=usdt&dstCurrency=rls")
+
+data = data.json()
+
+price = data['stats']['usdt-rls']['bestBuy']
+
+print(price)
 ```
